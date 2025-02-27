@@ -1,0 +1,27 @@
+[
+    {
+      "area": 1200,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "location": "New York",
+      "age": 5,
+      "price": 500000
+    },
+    {
+      "area": 1500,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "location": "San Francisco",
+      "age": 8,
+      "price": 750000
+    },
+    {
+      "area": 1000,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "location": "Chicago",
+      "age": 10,
+      "price": 300000
+    }
+  ]
+  
