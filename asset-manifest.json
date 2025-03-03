@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/CSDD_Assignment2_Dev/static/css/main.a8ff7191.css",
+    "main.js": "/CSDD_Assignment2_Dev/static/js/main.6e3d3758.js",
+    "static/js/453.65eef823.chunk.js": "/CSDD_Assignment2_Dev/static/js/453.65eef823.chunk.js",
+    "index.html": "/CSDD_Assignment2_Dev/index.html",
+    "main.a8ff7191.css.map": "/CSDD_Assignment2_Dev/static/css/main.a8ff7191.css.map",
+    "main.6e3d3758.js.map": "/CSDD_Assignment2_Dev/static/js/main.6e3d3758.js.map",
+    "453.65eef823.chunk.js.map": "/CSDD_Assignment2_Dev/static/js/453.65eef823.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a8ff7191.css",
+    "static/js/main.6e3d3758.js"
+  ]
+}
