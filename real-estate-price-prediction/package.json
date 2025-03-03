@@ -1,48 +1,54 @@
+
 {
-  "name": "real-estate-price-prediction",
+  "name": "real-estate-prediction",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rajsinghbawa.github.io/CSDD_Assignment2_Dev",
   "dependencies": {
-    "autoprefixer": "^10.4.20",
-    "bootstrap": "^5.3.3",
-    "brain.js": "^2.0.0-beta.24",
-    "chart.js": "^4.4.7",
-    "cra-template": "1.2.0",
-    "postcss": "^8.5.2",
-    "postcss-loader": "^8.1.1",
-    "react": "^19.0.0",
-    "react-chartjs-2": "^5.3.0",
-    "react-dom": "^19.0.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^4.2.4",
-    "xlsx": "^0.18.5"
+      "@testing-library/dom": "^10.4.0",
+      "@testing-library/jest-dom": "^6.6.3",
+      "@testing-library/react": "^16.2.0",
+      "@testing-library/user-event": "^13.5.0",
+      "bootstrap": "^5.3.3",
+      "brain.js": "^2.0.0-beta.24",
+      "chart.js": "^4.4.8",
+      "react": "^19.0.0",
+      "react-chartjs-2": "^5.3.0",
+      "react-dom": "^19.0.0",
+      "react-scripts": "5.0.1",
+      "web-vitals": "^2.1.4"
+  },
+  "engines": {
+      "node": "22.x"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject",
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+      "extends": [
+          "react-app",
+          "react-app/jest"
+      ]
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+      "production": [
+          ">0.2%",
+          "not dead",
+          "not op_mini all"
+      ],
+      "development": [
+          "last 1 chrome version",
+          "last 1 firefox version",
+          "last 1 safari version",
+          "last 1 edge version"
+      ]
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.6",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+      "gh-pages": "^6.3.0"
   }
 }
