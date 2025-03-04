@@ -8,14 +8,35 @@ const PropertyForm = ({ onSubmit }) => {
     location: "New York",
     age: "",
   });
+  
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    let newErrors = { ...errors };
+
+    // Validation rules
+    if (name === "area" && value > 100000) {
+      newErrors.area = "Area cannot exceed 100,000";
+    } else {
+      delete newErrors.area;
+    }
+
+    if (name === "age" && value > 20) {
+      newErrors.age = "Age cannot exceed 20 years";
+    } else {
+      delete newErrors.age;
+    }
+
+    setErrors(newErrors);
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    if (Object.keys(errors).length === 0) {
+      onSubmit(formData);
+    }
   };
 
   return (
@@ -41,6 +62,9 @@ const PropertyForm = ({ onSubmit }) => {
             required
             className="w-full border p-2 rounded focus:ring focus:ring-blue-300"
           />
+          {errors[field] && (
+            <p className="text-red-500 text-sm mt-1">{errors[field]}</p>
+          )}
         </div>
       ))}
 
@@ -64,6 +88,7 @@ const PropertyForm = ({ onSubmit }) => {
       <button
         type="submit"
         className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition"
+        disabled={Object.keys(errors).length > 0}
       >
         Predict Price 📊
       </button>
@@ -72,6 +97,81 @@ const PropertyForm = ({ onSubmit }) => {
 };
 
 export default PropertyForm;
+
+// import React, { useState } from "react";
+
+// const PropertyForm = ({ onSubmit }) => {
+//   const [formData, setFormData] = useState({
+//     area: "",
+//     bedrooms: "",
+//     bathrooms: "",
+//     location: "New York",
+//     age: "",
+//   });
+
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     onSubmit(formData);
+//   };
+
+//   return (
+//     <form
+//       onSubmit={handleSubmit}
+//       className="p-6 bg-white shadow-lg rounded-lg max-w-md w-full border"
+//     >
+//       <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+//         Enter Property Details 🏡
+//       </h2>
+
+//       {/** Input Fields */}
+//       {["area", "bedrooms", "bathrooms", "age"].map((field, index) => (
+//         <div key={index} className="mb-3">
+//           <label className="block mb-1 capitalize text-gray-600">
+//             {field}:
+//           </label>
+//           <input
+//             type="number"
+//             name={field}
+//             value={formData[field]}
+//             onChange={handleChange}
+//             required
+//             className="w-full border p-2 rounded focus:ring focus:ring-blue-300"
+//           />
+//         </div>
+//       ))}
+
+//       {/** Location Dropdown */}
+//       <div className="mb-3">
+//         <label className="block mb-1 text-gray-600">Location:</label>
+//         <select
+//           name="location"
+//           value={formData.location}
+//           onChange={handleChange}
+//           required
+//           className="w-full border p-2 rounded focus:ring focus:ring-blue-300"
+//         >
+//           <option value="New York">New York</option>
+//           <option value="San Francisco">San Francisco</option>
+//           <option value="Chicago">Chicago</option>
+//         </select>
+//       </div>
+
+//       {/** Submit Button */}
+//       <button
+//         type="submit"
+//         className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition"
+//       >
+//         Predict Price 📊
+//       </button>
+//     </form>
+//   );
+// };
+
+// export default PropertyForm;
 
 // import React, { useState } from "react";
 // import { readExcelFile } from "../utils/readExcel"; // Import the readExcelFile utility
